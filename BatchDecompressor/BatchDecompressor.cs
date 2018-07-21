@@ -19,7 +19,7 @@ namespace BatchDecompressor
 //					ProcessDirectory(path);
 //				else
 //					Console.WriteLine("{0} is not a valid file or directory.", path);
-			var path = @"D:\Downloads\Tex\stex\DevBu";
+			var path = @"D:\Downloads\Tex\stex\DevBu\";
 			ProcessDirectory(path);
 			Console.WriteLine("Done.");
 			Console.ReadLine(); //Pause
@@ -30,8 +30,10 @@ namespace BatchDecompressor
 		{
 			// Process the list of files found in the directory.
 			var fileEntries = Directory.GetFiles(targetDirectory);
-			foreach (var fileName in fileEntries)
-				ProcessFile(fileName);
+			foreach (var fileName in fileEntries) { 
+			    Console.WriteLine(fileName);
+			    ProcessFile(fileName);
+			}
 		}
 
 		// Insert logic for processing found files here.
