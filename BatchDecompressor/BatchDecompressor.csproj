@@ -48,7 +48,6 @@
     <Compile Include="BinaryWriterX.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Huffman.cs" />
-    <Compile Include="KmpSearcher.cs" />
     <Compile Include="LZ10.cs" />
     <Compile Include="LZ11.cs" />
     <Compile Include="Nintendo.cs" />

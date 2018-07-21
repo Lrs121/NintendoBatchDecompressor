@@ -10,18 +10,23 @@ namespace BatchDecompressor
 	{
 		public static void Main(string[] args)
 		{
-//			foreach (var path in args)
-//				if (File.Exists(path)) {
-//					ProcessFile(path);
-//					Console.WriteLine("Processing file " + path);
-//				}
-//				else if (Directory.Exists(path))
-//					ProcessDirectory(path);
-//				else
-//					Console.WriteLine("{0} is not a valid file or directory.", path);
-			var path = @"D:\Downloads\Tex\stex\DevBu\";
-			ProcessDirectory(path);
-			Console.WriteLine("Done.");
+			foreach (var path in args)
+			{
+			    if (File.Exists(path))
+			    {
+			        ProcessFile(path);
+			        Console.WriteLine("Processing file " + path);
+			    }
+			    else if (Directory.Exists(path))
+			    {
+			        ProcessDirectory(path);
+			    }
+			    else
+			    {
+			        Console.WriteLine("{0} is not a valid file or directory.", path);
+			    }
+			}
+		    Console.WriteLine("Done.");
 			Console.ReadLine(); //Pause
 		}
 
