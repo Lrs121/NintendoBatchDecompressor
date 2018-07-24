@@ -10,6 +10,13 @@ namespace BatchDecompressor
 	{
 		public static void Main(string[] args)
 		{
+		    if (args.Length == 0)
+		    {
+                Console.WriteLine("Please supply one or more file paths as arguments.");
+		        Console.ReadLine();
+                System.Environment.Exit(1);
+		    }
+
 			foreach (var path in args)
 			{
 			    if (File.Exists(path))
@@ -44,10 +51,17 @@ namespace BatchDecompressor
 		// Insert logic for processing found files here.
 		public static void ProcessFile(string path)
 		{
-			Stream fs = File.OpenRead(path);
-			var newPath = path + ".stex";
-			var decompressed = Nintendo.Decompress(fs);
-			File.WriteAllBytes(newPath, decompressed);
+		    try
+		    {
+		        Stream fs = File.OpenRead(path);
+		        var newPath = path + ".stex";
+		        var decompressed = Nintendo.Decompress(fs);
+		        File.WriteAllBytes(newPath, decompressed);
+		    }
+		    catch (System.ArgumentException)
+		    {
+                Console.WriteLine(path + " Cannot be decompressed.");
+		    }
 		}
 	}
 }
